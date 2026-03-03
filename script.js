@@ -40,11 +40,21 @@ function updateCountdown(){
 }
 
 if(!DEV_MODE && now < unlockDate){
+
   updateCountdown();
   var timerInterval = setInterval(updateCountdown,1000);
+
 }else{
+
+  // Remove lock
   lockScreen.classList.remove("active");
+
+  // Activate welcome
   welcomeScreen.classList.add("active");
+
+  // Trigger unlock effects
+  midnightUnlock();
+
 }
 /* ========= ELEMENTS ========= */
 
@@ -409,4 +419,5 @@ function midnightUnlock(){
 }
 
 });
+
 
