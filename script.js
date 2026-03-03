@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
+/* ================= SMART DEV MODE ================= */
+
+const urlParams = new URLSearchParams(window.location.search);
+const DEV_MODE = urlParams.get("dev") === "true";
+
+const unlockDate = new Date("March 4, 2026 00:00:00").getTime();
+const now = new Date().getTime();
 const isMobile = window.innerWidth <= 768;
 const isLowPower = isMobile || navigator.hardwareConcurrency <= 4;
 /* ================= TIMER LOCK ================= */
@@ -32,7 +39,7 @@ function updateCountdown(){
   countdown.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
 }
 
-if(now < unlockDate){
+if(!DEV_MODE && now < unlockDate){
   updateCountdown();
   var timerInterval = setInterval(updateCountdown,1000);
 }else{
@@ -402,3 +409,4 @@ function midnightUnlock(){
 }
 
 });
+
