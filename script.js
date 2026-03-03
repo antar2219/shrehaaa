@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 
-const unlockDate = new Date("March 3, 2026 15:30:00").getTime();
+const unlockDate = new Date("March 3, 2026 15:34:00").getTime();
 const now = new Date().getTime();
 const isMobile = window.innerWidth <= 768;
 const isLowPower = isMobile || navigator.hardwareConcurrency <= 4;
@@ -416,5 +416,6 @@ function midnightUnlock(){
 }
 
 });
+
 
 
